@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -15,5 +16,7 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [LoginController::class, 'destroy'])->name('logout');
+    Route::resource('accounts', AccountController::class)->except(['show', 'destroy']);
+    Route::patch('/accounts/{account}/archive', [AccountController::class, 'archive'])->name('accounts.archive');
     Route::view('/dashboard', 'dashboard')->name('dashboard');
 });

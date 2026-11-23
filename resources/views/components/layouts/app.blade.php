@@ -68,6 +68,11 @@
                 </div>
             </header>
             <main class="flex-1 p-4 sm:p-8">
+                @if (session('status'))
+                    <div class="mb-6 rounded-xl border border-line bg-surface-2 px-4 py-3 text-sm text-ink">
+                        {{ session('status') }}
+                    </div>
+                @endif
                 {{ $slot }}
             </main>
         </div>
