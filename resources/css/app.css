@@ -3,7 +3,61 @@
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+@import '@fontsource-variable/inter';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+    --bg: #f6f7fb;
+    --surface: #ffffff;
+    --surface-2: #f0f2f8;
+    --border: #e6e8f0;
+    --text: #0f172a;
+    --muted: #64748b;
+    --accent: #059669;
+    --accent-fg: #ffffff;
+    --income: #059669;
+    --expense: #e11d48;
+}
+
+.dark {
+    --bg: #0b0f1a;
+    --surface: #121829;
+    --surface-2: #182036;
+    --border: #222b45;
+    --text: #e7eaf3;
+    --muted: #8f9bb8;
+    --accent: #34d399;
+    --accent-fg: #04241b;
+    --income: #34d399;
+    --expense: #fb7185;
+}
+
+@theme inline {
+    --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+    --color-bg: var(--bg);
+    --color-surface: var(--surface);
+    --color-surface-2: var(--surface-2);
+    --color-line: var(--border);
+    --color-ink: var(--text);
+    --color-muted: var(--muted);
+    --color-accent: var(--accent);
+    --color-accent-fg: var(--accent-fg);
+    --color-income: var(--income);
+    --color-expense: var(--expense);
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.num {
+    font-variant-numeric: tabular-nums;
+}
+
+[x-cloak] {
+    display: none !important;
 }
