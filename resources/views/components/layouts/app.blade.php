@@ -60,6 +60,11 @@
                         <span x-show="dark"><x-icon name="sun" /></span>
                         <span x-show="! dark" x-cloak><x-icon name="moon" /></span>
                     </button>
+<span class="hidden text-sm text-muted sm:inline">{{ auth()->user()?->name }}</span>
+<form method="POST" action="{{ route('logout') }}">
+    @csrf
+    <x-button variant="secondary" type="submit">Sign out</x-button>
+</form>
                 </div>
             </header>
             <main class="flex-1 p-4 sm:p-8">
