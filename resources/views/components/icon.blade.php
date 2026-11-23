@@ -25,5 +25,11 @@
         @case('menu')
             <line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>
             @break
+        @case('arrow-up-right')
+            <path d="M7 7h10v10"/><path d="M7 17 17 7"/>
+            @break
+        @case('arrow-down-left')
+            <path d="M17 7 7 17"/><path d="M17 17H7V7"/>
+            @break
     @endswitch
 </svg>

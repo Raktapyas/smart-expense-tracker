@@ -9,7 +9,7 @@
     <x-card class="mt-6">
         <p class="text-sm text-muted">Recent activity will appear here.</p>
         <div class="mt-4 flex gap-3">
-            <x-button>Add transaction</x-button>
+            <x-button :href="route('transactions.create')">Add transaction</x-button>
             <x-button variant="secondary">View reports</x-button>
         </div>
     </x-card>
