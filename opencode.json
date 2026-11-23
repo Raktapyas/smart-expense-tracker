@@ -5,7 +5,7 @@
             "type": "local",
             "enabled": true,
             "command": [
-                "php",
+                "/Users/raktapyas/.config/herd-lite/bin/php",
                 "artisan",
                 "boost:mcp"
             ]
