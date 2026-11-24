@@ -8,6 +8,7 @@
         ['Recurring', 'recurring.index', 'repeat'],
         ['Insights', 'insights.index', 'bar-chart'],
         ['Smart rules', 'rules.index', 'sparkles'],
+        ['Settings', 'settings.edit', 'user'],
     ];
 @endphp
 <!DOCTYPE html>

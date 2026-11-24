@@ -9,6 +9,7 @@ use App\Http\Controllers\CategorySuggestionController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InsightController;
 use App\Http\Controllers\RecurringTransactionController;
+use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,5 +34,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/insights', InsightController::class)->name('insights.index');
     Route::patch('/recurring/{recurring}/toggle', [RecurringTransactionController::class, 'toggle'])->name('recurring.toggle');
     Route::resource('recurring', RecurringTransactionController::class)->except(['show']);
+    Route::get('/settings', [SettingsController::class, 'edit'])->name('settings.edit');
+    Route::patch('/settings/profile', [SettingsController::class, 'updateProfile'])->name('settings.profile.update');
+    Route::put('/settings/password', [SettingsController::class, 'updatePassword'])
+        ->middleware('throttle:6,1')->name('settings.password.update');
+    Route::delete('/settings/account', [SettingsController::class, 'destroy'])
+        ->middleware('throttle:6,1')->name('settings.account.destroy');
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
 });
