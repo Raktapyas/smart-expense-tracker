@@ -24,6 +24,30 @@
         <x-stat-card :label="'Saved · '.$monthLabel" :amount="$saved" />
     </div>
 
+    <x-card class="mt-6">
+    <div class="mb-5 flex items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+            <h2 class="font-semibold">Budgets · {{ $monthLabel }}</h2>
+            @if ($overBudgetCount > 0)
+                <span class="rounded-full bg-expense/15 px-2.5 py-1 text-xs font-medium text-expense">{{ $overBudgetCount }} over budget</span>
+            @endif
+        </div>
+        <a href="{{ route('budgets.index') }}" class="text-sm text-accent hover:underline">Manage</a>
+    </div>
+    @if ($budgets->isEmpty())
+        <p class="text-sm text-muted">Set a monthly limit to keep your spending on track.</p>
+        <div class="mt-4">
+            <x-button variant="secondary" :href="route('budgets.create')">Set a budget</x-button>
+        </div>
+    @else
+        <div class="grid gap-5 sm:grid-cols-2">
+            @foreach ($budgets as $item)
+                <x-budget-progress :item="$item" />
+            @endforeach
+        </div>
+    @endif
+</x-card>
+
     <div class="mt-6 grid gap-6 lg:grid-cols-3">
         <x-card class="lg:col-span-2">
             <div class="mb-5 flex items-center justify-between">

@@ -12,6 +12,8 @@ use Illuminate\Support\Collection;
 
 class DashboardService
 {
+    public function __construct(private BudgetService $budgets) {}
+
     public function build(User $user): array
     {
         $accounts = $user->accounts()
@@ -31,6 +33,8 @@ class DashboardService
         $income = round((float) $totals->income, 2);
         $expense = round((float) $totals->expense, 2);
 
+        $budgetProgress = $this->budgets->progress($user);
+
         return [
             'monthLabel' => now()->format('F Y'),
             'accounts' => $accounts,
@@ -40,6 +44,8 @@ class DashboardService
             'saved' => round($income - $expense, 2),
             'categoryBreakdown' => $this->categoryBreakdown(clone $monthQuery),
             'trend' => $this->trend($user),
+            'budgets' => $budgetProgress->take(4)->values(),
+            'overBudgetCount' => $budgetProgress->where('status', 'over')->count(),
             'recent' => $user->transactions()
                 ->with(['account', 'transferAccount', 'category'])
                 ->orderByDesc('occurred_on')
