@@ -1,58 +1,58 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=22&pause=1200&color=39ff14&background=000000&center=true&vCenter=true&width=720&cursor=true&repeat=true&lines=I+DON%27T+CHASE+MONEY.+I+CONTROL+IT.;EVERY+RUPEE+HAS+A+PURPOSE.;TRACK+IT.+OWN+IT.+DOMINATE+IT.;YOUR+MONEY.+YOUR+RULES.;FINANCIAL+CHAOS+ENDS+HERE." alt="Typing SVG" />
 </p>
 
-## About Laravel
+<div align="center">
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# SMART EXPENSE TRACKER
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### `// control your money before it controls you`
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<p>
+  <img src="https://img.shields.io/badge/PHP-8.3+-000000?style=for-the-badge&logo=php&logoColor=39ff14&labelColor=000000&color=39ff14" alt="PHP 8.3+" />
+  <img src="https://img.shields.io/badge/Laravel-13-000000?style=for-the-badge&logo=laravel&logoColor=39ff14&labelColor=000000&color=39ff14" alt="Laravel 13" />
+  <img src="https://img.shields.io/badge/Tailwind-4-000000?style=for-the-badge&logo=tailwindcss&logoColor=39ff14&labelColor=000000&color=39ff14" alt="Tailwind 4" />
+  <img src="https://img.shields.io/badge/Alpine.js-3-000000?style=for-the-badge&logo=alpinedotjs&logoColor=39ff14&labelColor=000000&color=39ff14" alt="Alpine.js 3" />
+  <img src="https://img.shields.io/badge/Pest-5-000000?style=for-the-badge&logo=pest&logoColor=39ff14&labelColor=000000&color=39ff14" alt="Pest 5" />
+  <img src="https://img.shields.io/badge/SQLite--39ff14?style=for-the-badge&logo=sqlite&logoColor=39ff14&labelColor=000000&color=39ff14" alt="SQLite" />
+  <img src="https://img.shields.io/badge/License-MIT-000000?style=for-the-badge&labelColor=000000&color=39ff14" alt="MIT License" />
+</p>
 
-## Learning Laravel
+</div>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<p align="center">
+  <img src="assets/demo.gif" alt="Smart Expense Tracker — live demo" width="100%" />
+</p>
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+<p align="center"><code>WATCH EVERY RUPEE FALL INTO PLACE.</code></p>
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+---
 
-## Agentic Development
+> **Built to dominate your finances.** A self-hosted, dark-first ledger that turns
+> raw transactions into ruthless clarity — balances, budgets, and spending patterns
+> at a glance. No SaaS. No subscriptions. Your data stays yours.
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+## `// capabilities`
 
-```bash
-composer require laravel/boost --dev
+- **Multi-account ledger** — cash, bank, card, wallet, savings. Live balances via
+  income, expense, and transfer aggregation.
+- **Transaction engine** — income / expense / transfer with soft-deleted audit trail.
+- **Auto-categorisation** — merchant rules + historical inference, applied to
+  existing uncategorised entries.
+- **Budget enforcement** — per-category and overall monthly limits with `ok` /
+  `warning` (≥80%) / `over` states.
+- **Command dashboard** — total balance, monthly income vs expense, saved amount,
+  category breakdown, 6-month trend, recent activity.
+- **Precision money** — `decimal(14,2)` everywhere. Never a float. Tabular numerals
+  in the UI.
+- **Dark-native UI** — black-first, emerald accent, Inter Variable, soft cards.
 
-php artisan boost:install
-```
+## `// stack`
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+`Laravel 13` · `Blade` · `Tailwind CSS 4` · `Alpine.js 3` · `SQLite` · `Pest 5`
 
-## Contributing
+<div align="center">
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**`// end of transmission`**
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+</div>
