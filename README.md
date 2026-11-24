@@ -8,16 +8,6 @@
 
 ### `// control your money before it controls you`
 
-<p>
-  <img src="https://img.shields.io/badge/PHP-8.3+-000000?style=for-the-badge&logo=php&logoColor=39ff14&labelColor=000000&color=39ff14" alt="PHP 8.3+" />
-  <img src="https://img.shields.io/badge/Laravel-13-000000?style=for-the-badge&logo=laravel&logoColor=39ff14&labelColor=000000&color=39ff14" alt="Laravel 13" />
-  <img src="https://img.shields.io/badge/Tailwind-4-000000?style=for-the-badge&logo=tailwindcss&logoColor=39ff14&labelColor=000000&color=39ff14" alt="Tailwind 4" />
-  <img src="https://img.shields.io/badge/Alpine.js-3-000000?style=for-the-badge&logo=alpinedotjs&logoColor=39ff14&labelColor=000000&color=39ff14" alt="Alpine.js 3" />
-  <img src="https://img.shields.io/badge/Pest-5-000000?style=for-the-badge&logo=pest&logoColor=39ff14&labelColor=000000&color=39ff14" alt="Pest 5" />
-  <img src="https://img.shields.io/badge/SQLite--39ff14?style=for-the-badge&logo=sqlite&logoColor=39ff14&labelColor=000000&color=39ff14" alt="SQLite" />
-  <img src="https://img.shields.io/badge/License-MIT-000000?style=for-the-badge&labelColor=000000&color=39ff14" alt="MIT License" />
-</p>
-
 </div>
 
 <p align="center">
@@ -47,9 +37,12 @@
   in the UI.
 - **Dark-native UI** — black-first, emerald accent, Inter Variable, soft cards.
 
-## `// stack`
+## `// the mission`
 
-`Laravel 13` · `Blade` · `Tailwind CSS 4` · `Alpine.js 3` · `SQLite` · `Pest 5`
+> ⚡ EVERY RUPEE TRACKED.
+> ▸ EVERY DECISION CONTROLLED.
+
+[ SYSTEM STATUS: MONEY UNDER CONTROL ] ✓
 
 <div align="center">
 
