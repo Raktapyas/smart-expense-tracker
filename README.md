@@ -42,8 +42,6 @@
 > ⚡ EVERY RUPEE TRACKED.
 > ▸ EVERY DECISION CONTROLLED.
 
-[ SYSTEM STATUS: MONEY UNDER CONTROL ] ✓
-
 <div align="center">
 
 **`// end of transmission`**
