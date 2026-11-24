@@ -90,7 +90,7 @@
                         <div class="min-w-0 flex-1">
                             <p class="truncate font-medium">{{ $title }}</p>
                             <p class="truncate text-xs text-muted">
-                                {{ $t->occurred_on->format('d M Y') }} ·
+                                {{ $t->occurred_on->format('d M Y') }}@if ($t->recurring_transaction_id) · Recurring @endif ·
                                 @if ($isTransfer)
                                     {{ $t->account->name }} → {{ $t->transferAccount?->name ?? '—' }}
                                 @else

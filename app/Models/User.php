@@ -55,4 +55,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(CategoryRule::class);
     }
+
+    public function recurringTransactions(): HasMany
+    {
+        return $this->hasMany(RecurringTransaction::class);
+    }
 }

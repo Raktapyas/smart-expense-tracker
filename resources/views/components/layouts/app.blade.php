@@ -5,6 +5,7 @@
         ['Transactions', 'transactions.index', 'arrow-left-right'],
         ['Accounts', 'accounts.index', 'wallet'],
         ['Budgets', 'budgets.index', 'pie-chart'],
+        ['Recurring', 'recurring.index', 'repeat'],
         ['Reports', 'reports.index', 'bar-chart'],
         ['Smart rules', 'rules.index', 'sparkles'],
     ];
