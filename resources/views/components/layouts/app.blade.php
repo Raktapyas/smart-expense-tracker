@@ -6,7 +6,7 @@
         ['Accounts', 'accounts.index', 'wallet'],
         ['Budgets', 'budgets.index', 'pie-chart'],
         ['Recurring', 'recurring.index', 'repeat'],
-        ['Reports', 'reports.index', 'bar-chart'],
+        ['Insights', 'insights.index', 'bar-chart'],
         ['Smart rules', 'rules.index', 'sparkles'],
     ];
 @endphp

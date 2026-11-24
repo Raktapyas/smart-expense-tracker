@@ -7,6 +7,7 @@ use App\Http\Controllers\BudgetController;
 use App\Http\Controllers\CategoryRuleController;
 use App\Http\Controllers\CategorySuggestionController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\InsightController;
 use App\Http\Controllers\RecurringTransactionController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
@@ -29,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/categorise', CategorySuggestionController::class)
         ->middleware('throttle:60,1')->name('categorise');
     Route::resource('rules', CategoryRuleController::class)->only(['index', 'store', 'destroy']);
+    Route::get('/insights', InsightController::class)->name('insights.index');
     Route::patch('/recurring/{recurring}/toggle', [RecurringTransactionController::class, 'toggle'])->name('recurring.toggle');
     Route::resource('recurring', RecurringTransactionController::class)->except(['show']);
     Route::get('/dashboard', DashboardController::class)->name('dashboard');

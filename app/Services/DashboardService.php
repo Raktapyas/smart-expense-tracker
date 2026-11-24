@@ -12,7 +12,7 @@ use Illuminate\Support\Collection;
 
 class DashboardService
 {
-    public function __construct(private BudgetService $budgets) {}
+    public function __construct(private BudgetService $budgets, private InsightService $insights) {}
 
     public function build(User $user): array
     {
@@ -46,6 +46,7 @@ class DashboardService
             'trend' => $this->trend($user),
             'budgets' => $budgetProgress->take(4)->values(),
             'overBudgetCount' => $budgetProgress->where('status', 'over')->count(),
+            'insights' => $this->insights->report($user)['insights']->take(4)->values(),
             'recent' => $user->transactions()
                 ->with(['account', 'transferAccount', 'category'])
                 ->orderByDesc('occurred_on')

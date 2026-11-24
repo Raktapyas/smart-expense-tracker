@@ -24,6 +24,20 @@
         <x-stat-card :label="'Saved · '.$monthLabel" :amount="$saved" />
     </div>
 
+    @if ($insights->isNotEmpty())
+    <x-card class="mt-6">
+        <div class="mb-1 flex items-center justify-between">
+            <h2 class="font-semibold">Insights</h2>
+            <a href="{{ route('insights.index') }}" class="text-sm text-accent hover:underline">See all</a>
+        </div>
+        <ul class="divide-y divide-line">
+            @foreach ($insights as $insight)
+                <x-insight :insight="$insight" />
+            @endforeach
+        </ul>
+    </x-card>
+@endif
+
     <x-card class="mt-6">
     <div class="mb-5 flex items-center justify-between gap-3">
         <div class="flex items-center gap-3">
