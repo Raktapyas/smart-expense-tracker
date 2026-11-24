@@ -6,6 +6,7 @@
         ['Accounts', 'accounts.index', 'wallet'],
         ['Budgets', 'budgets.index', 'pie-chart'],
         ['Reports', 'reports.index', 'bar-chart'],
+        ['Smart rules', 'rules.index', 'sparkles'],
     ];
 @endphp
 <!DOCTYPE html>

@@ -8,16 +8,16 @@
         'expense' => $categories->filter(fn ($c) => $c->type === \App\Enums\CategoryType::Expense)
             ->map(fn ($c) => ['id' => $c->id, 'name' => $c->name])->values()->all(),
     ];
-    $currentType = old('type', $transaction?->type?->value ?? 'expense');
+    $formConfig = [
+        'type' => old('type', $transaction?->type?->value ?? 'expense'),
+        'category' => (string) old('category_id', $transaction?->category_id),
+        'categories' => $categoryOptions,
+        'merchant' => (string) old('merchant', $transaction?->merchant),
+        'suggestUrl' => route('categorise'),
+    ];
 @endphp
 
-<div class="space-y-5"
-     x-data="{
-         type: @js($currentType),
-         category: @js((string) old('category_id', $transaction?->category_id)),
-         categories: @js($categoryOptions),
-     }"
-     x-init="$watch('type', () => category = '')">
+<div class="space-y-5" x-data="transactionForm(@js($formConfig))">
 
     <div>
         <span class="mb-1.5 block text-sm font-medium text-muted">Type</span>
@@ -45,15 +45,20 @@
                   :selected="$transaction?->transfer_account_id" />
     </div>
 
+    <x-input label="Merchant / payee (optional)" name="merchant" :value="$transaction?->merchant"
+             placeholder="e.g. Bhat-Bhateni, Salary" autocomplete="off"
+             x-model="merchant" x-on:input.debounce.500ms="suggest()" />
+
     <div x-show="type !== 'transfer'">
         <label for="category_id" class="mb-1.5 block text-sm font-medium text-muted">Category</label>
-        <select id="category_id" name="category_id" x-model="category"
+        <select id="category_id" name="category_id" x-model="category" x-on:change="pick()"
                 class="w-full rounded-xl border border-line bg-surface-2 px-3.5 py-2.5 text-ink focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent">
             <option value="">Uncategorised</option>
             <template x-for="c in (categories[type] ?? [])" :key="c.id">
                 <option :value="c.id" x-text="c.name" :selected="c.id == category"></option>
             </template>
         </select>
+        <p x-show="hint" x-cloak x-text="hint" class="mt-1.5 text-xs text-accent"></p>
         @error('category_id')
             <p class="mt-1.5 text-sm text-expense">{{ $message }}</p>
         @enderror
@@ -61,9 +66,6 @@
 
     <x-input label="Date" name="occurred_on" type="date"
              :value="$transaction?->occurred_on?->format('Y-m-d') ?? now()->format('Y-m-d')" required />
-
-    <x-input label="Merchant / payee (optional)" name="merchant" :value="$transaction?->merchant"
-             placeholder="e.g. Bhat-Bhateni, Salary" />
 
     <div>
         <label for="note" class="mb-1.5 block text-sm font-medium text-muted">Note (optional)</label>

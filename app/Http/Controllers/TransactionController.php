@@ -54,9 +54,15 @@ class TransactionController extends Controller
 
     public function store(TransactionRequest $request, SaveTransaction $save): RedirectResponse
     {
-        $save($request->user(), $request->validated());
+        $transaction = $save($request->user(), $request->validated());
 
-        return redirect()->route('transactions.index')->with('status', 'Transaction added.');
+        $status = 'Transaction added.';
+
+        if (empty($request->validated()['category_id']) && $transaction->category_id) {
+            $status .= ' Auto-categorised as '.$transaction->category->name.'.';
+        }
+
+        return redirect()->route('transactions.index')->with('status', $status);
     }
 
     public function edit(Request $request, Transaction $transaction): View
