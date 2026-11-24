@@ -6,6 +6,7 @@ use App\Actions\SaveTransaction;
 use App\Http\Requests\TransactionRequest;
 use App\Models\Category;
 use App\Models\Transaction;
+use App\Support\TransactionFilter;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -15,13 +16,30 @@ class TransactionController extends Controller
 {
     public function index(Request $request): View
     {
-        $transactions = $request->user()->transactions()
+        $user = $request->user();
+        $filter = TransactionFilter::fromRequest($request);
+
+        $query = $filter->apply(Transaction::query()->where('user_id', $user->id));
+
+        $totals = (clone $query)->toBase()
+            ->selectRaw("COALESCE(SUM(CASE WHEN type = 'income' THEN amount END), 0) AS income")
+            ->selectRaw("COALESCE(SUM(CASE WHEN type = 'expense' THEN amount END), 0) AS expense")
+            ->first();
+
+        $transactions = (clone $query)
             ->with(['account', 'transferAccount', 'category'])
             ->orderByDesc('occurred_on')
             ->orderByDesc('id')
-            ->paginate(15);
+            ->paginate(15)
+            ->withQueryString();
 
-        return view('transactions.index', compact('transactions'));
+        return view('transactions.index', [
+            'transactions' => $transactions,
+            'filter' => $filter,
+            'totals' => $totals,
+            'accounts' => $user->accounts()->orderBy('name')->get(),
+            'categories' => Category::availableTo($user->id)->orderBy('type')->orderBy('name')->get(),
+        ]);
     }
 
     public function create(Request $request): View|RedirectResponse

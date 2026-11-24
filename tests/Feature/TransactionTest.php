@@ -138,7 +138,7 @@ it('lists only the signed-in user transactions', function () {
     $other = User::factory()->create();
     newTransaction($other, newAccount($other), ['merchant' => 'Their Cafe']);
 
-    $this->actingAs($user)->get('/transactions')
+    $this->actingAs($user)->get('/transactions?range=all')
         ->assertOk()
         ->assertSee('Mine Cafe')
         ->assertDontSee('Their Cafe');
