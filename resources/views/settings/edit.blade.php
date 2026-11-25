@@ -25,6 +25,17 @@
             </form>
         </x-card>
 
+        <x-card>
+            <h2 class="font-semibold">Your data</h2>
+            <p class="mt-1 text-sm text-muted">
+                Download a copy of your transactions, or bring in transactions from a bank statement or spreadsheet.
+            </p>
+            <div class="mt-5 flex flex-wrap gap-3">
+                <x-button variant="secondary" :href="route('export.transactions', ['range' => 'all'])">Export all transactions (CSV)</x-button>
+                <x-button variant="secondary" :href="route('import.create')">Import from CSV</x-button>
+            </div>
+        </x-card>
+
         <x-card class="border-expense/40">
             <h2 class="font-semibold text-expense">Delete account</h2>
             <p class="mt-1 text-sm text-muted">
