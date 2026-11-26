@@ -23,12 +23,6 @@ function budgetSpend($test, array $attributes = []): Transaction
     ]);
 }
 
-it('keeps guests out of budgets', function () {
-    app('auth')->forgetGuards();
-
-    $this->withHeaders([])->getJson('/api/v1/budgets')->assertOk();
-})->skip('covered by the auth tests');
-
 it('lists budgets with progress for this month only', function () {
     $food = Category::create(['name' => 'Food', 'type' => 'expense']);
     $this->user->budgets()->create(['category_id' => $food->id, 'amount' => 1000]);
